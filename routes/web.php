@@ -26,3 +26,6 @@ Route::get('/gestionador/eliminar','App\Http\Controllers\CtrlGestionador@elimina
 
 //ruta para gestionar el envío de datos para ser guardados y almacenados
 Route::post('/enviar','App\Http\Controllers\CtrlGestionador@enviar')->name("gestionador_enviar");
+
+//ruta para remover y/o eliminar datos
+Route::post('/remover','App\Http\Controllers\CtrlGestionador@remover')->name("gestionador_remover");

@@ -14,12 +14,19 @@ class CtrlGestionador extends Controller
         return view('gestionador.agregar');
     }
 
-    public function eliminar(){
+    public function eliminar(){  
         return view('gestionador.eliminar');
+
     }
 
     public function enviar(Request $request){
         
         return view('gestionador.enviar')->with('request',$request);
+    }
+
+
+    public function remover(Request $request){
+        
+        return view('gestionador.remover')->with('request',$request);
     }
 }

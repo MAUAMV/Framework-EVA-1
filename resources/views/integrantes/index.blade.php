@@ -1,3 +1,7 @@
+
+@extends('layouts.master')
+@section('content')
+
 <h4>Integrantes grupo 8</h4>
 
 <ul>
@@ -8,3 +12,4 @@
 </ul>
 
 <a href="/"> Volver </a>
+@stop
