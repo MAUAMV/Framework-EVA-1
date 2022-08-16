@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Producto;
+use App\Models\Categoria;
+
 class CtrlGestionador extends Controller
 {
     public function index(){
-        return view('gestionador.index');
+        $productos = Producto::get();
+
+        dd($productos);
+        //return view('gestionador.index');
     }
 
     public function agregar(){
