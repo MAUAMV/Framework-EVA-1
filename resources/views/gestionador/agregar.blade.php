@@ -9,43 +9,33 @@ Página agregar libro
 @section('body')--}}
 
 <br>
-<form method='POST' action={{url('enviar')}} >
+<form method='POST' action="/enviar" >
     <label for="exampleFormControlInput1" class="form-label">Nombre producto</label>
-    <input type="text" name="nombre">
+    <input type="text" name="nombre" id="nombre">
 
     <br><br>
 
-    <label for="exampleFormControlInput1" class="form-label">Código de producto</label>
-    <input type="text" name="codigo">
+    <label for="exampleFormControlInput1" class="form-label">Autor</label>
+    <input type="text" name="autor" id="autor">
 
     <br><br>
 
     Categoria
-    <select name="categoria" class="form-select" aria-label="Default select example">
+    <select name="categoria" id="categoria" class="form-select" aria-label="Default select example">
         <option selected>Seleccionar opción</option>
-        <option value="Ficción">Ficción</option>
-        <option value="Histórico">Histórico</option>
-        <option value="Novela">Novela</option>
-        <option value="Thriller">Thriller</option>
+        @foreach($categorias as $categoria)
+          <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+        @endforeach
+        
       </select>
       <br><br>
-      Sucursal en la que se encuentra
-    <select name="sucursal"  class="form-select" aria-label="Default select example">
-        <option selected>Seleccionar opción</option>
-        <option value="Santiago">Santiago</option>
-        <option value="Providencia">Providencia</option>
-        <option value="Maipu">Maipú</option>
     </select>
     <br><br>
-      <label for="exampleFormControlInput1" class="form-label">Cantidad</label>
-      <input type="number" name="cantidad">
+    <input type="radio" id="activo" name="estado" value=1>
+   <label for="activo">activo</label><br>
+   <input type="radio" id="css" name="estado" value=0>
+   <label for="inactivo">inactivo</label><br>
       <br><br>
-      <label for="exampleFormControlInput1" class="form-label">Precio</label>
-      <input type="number" name="precio">
-      <br><br>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Descripción de libro</label>
-        <br><textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" row="4" ></textarea>
       </div>
       <br><br>
 

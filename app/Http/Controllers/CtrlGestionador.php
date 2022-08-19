@@ -17,7 +17,10 @@ class CtrlGestionador extends Controller
     }
 
     public function agregar(){
-        return view('gestionador.agregar');
+        $categoria = Categoria::get();
+        return view('gestionador.agregar',[
+            "categorias" => $categoria
+        ]);
     }
 
     public function eliminar(){  
@@ -27,7 +30,24 @@ class CtrlGestionador extends Controller
 
     public function enviar(Request $request){
         
-        return view('gestionador.enviar')->with('request',$request);
+        $this->validate($request,[
+            'nombre' => 'required',
+            'autor' => 'required',
+            'categoria' => 'required',
+            'estado' => 'required'
+        ]);
+        $producto = new Producto();
+        $producto -> nombre = $request -> nombre;
+        $producto -> autor = $request -> autor;
+        $producto -> estado =  $request -> estado;
+        $producto -> categoria_id =  $request -> categoria;
+        
+
+        $producto-> save();
+
+        $productos = Producto::get();
+
+        dd($productos);
     }
 
 
