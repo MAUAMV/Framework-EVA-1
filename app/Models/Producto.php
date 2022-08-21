@@ -15,4 +15,9 @@ class Producto extends Model
     public function categorias(){
         return $this->belongsTo('App\Models\Categoria','categoria_id');
     }
+
+    public function existencias(){
+        return $this->belongsTo('App\Models\Existencia','existencia_id');
+    }
+
 }

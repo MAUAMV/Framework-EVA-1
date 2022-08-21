@@ -15,13 +15,39 @@ class InsertarDatosProductos extends Seeder
      */
     public function run()
     {
-        for($i=1;$i <= 10; $i++){
+        
             DB::table('productos')->insert(array(
-                'nombre' => "Producto n° {$i}",
-                'autor' => "Autor n° {$i}",
-                'categoria_id' => $i,
+                [
+                'nombre' => 'Harry Potter y el caliz de fuego',
+                'autor' => 'J.K Rowling',
+                'categoria_id' => 3,
                 'estado' => 1
+
+                ],
+
+                [
+                'nombre' => 'El señor de los anillos',
+                'autor' => 'J.R.R. Tolkien',
+                'categoria_id' => 1,
+                'estado' => 1
+    
+                    ],
+
+                    [
+                    'nombre' => 'El resplandor',
+                    'autor' => 'Stephen king',
+                    'categoria_id' => 2,
+                    'estado' => 1
+        
+                        ]
+
+
+
+
+
+
             ));
-        }
+        
     }
+
 }

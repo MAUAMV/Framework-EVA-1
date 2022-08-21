@@ -15,13 +15,34 @@ class InsertarDatosExistencias extends Seeder
      */
     public function run()
     {
-        for($i=1;$i <= 10; $i++){
+       
             DB::table('existencias')->insert(array(
-                'producto_id' => "{$i}",
-                'sucursal_id' => "{$i}",
-                'precio' => $i *901,
-                'cantidad' => $i *3
+                [
+                    'precio' => 15000  ,
+                    'cantidad' => 1,
+                    'producto_id' => 1,
+                    'sucursal_id' => 1
+
+                ],
+
+                [
+                    'precio' => 10000  ,
+                    'cantidad' => 2,
+                    'producto_id' => 2,
+                    'sucursal_id' => 2
+
+                ],
+
+                [
+                    'precio' => 20000  ,
+                    'cantidad' => 10,
+                    'producto_id' => 3,
+                    'sucursal_id' => 3
+
+                ]
+
+                
             ));
-        }
+        
     }
 }

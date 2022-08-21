@@ -16,11 +16,23 @@ class InsertarDatosSucursales extends Seeder
     public function run()
     {
         
-        for($i=1;$i <= 5; $i++){
             DB::table('sucursales')->insert(array(
-                'nombre' => "Sucursal n° {$i}",
-                'direccion' => "Calle n° {$i} Chile"
+                [
+                'nombre' => 'Santiago',
+                'direccion' => 'Agustinas 148'
+                ],
+                [
+                'nombre' => 'Las condes',
+                'direccion' => 'Rosario norte 557'
+                ],
+
+                [
+                'nombre' => 'Providencia',
+                'direccion' => 'Alberto Magno 147'
+                ]
+
+
             ));
-        }
+        
     }
 }

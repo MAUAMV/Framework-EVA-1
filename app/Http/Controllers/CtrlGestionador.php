@@ -22,7 +22,10 @@ class CtrlGestionador extends Controller
         $productos = Producto::get();
 
         //dd($productos);
-        return view('gestionador.listado');
+        return view('gestionador.listado',[
+            'productos'=>$productos
+        ]);
+        
     }
 
     public function agregar(){
@@ -44,6 +47,14 @@ class CtrlGestionador extends Controller
             "asignarProducto" => $asignarProducto
         ]);
     }
+
+    public function asignarSucursal(){
+        $asignarSucursal = asignarSucursal::get();
+        return view('gestionador.asignarSucursal',[
+            "asignarSucursal" => $asignarSucursal
+        ]);
+    }
+
 
     public function eliminar(){  
         return view('gestionador.eliminar');

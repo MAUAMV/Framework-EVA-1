@@ -15,12 +15,29 @@ class InsertarDatosCategorias extends Seeder
      */
     public function run()
     {
+                DB::table('categorias')->insert(array(
+
+                [    
+                   'nombre' => 'Ficción',
+                   'descripcion' => 'Es un género narrativo que se basa especialmente en elementos principalmente de fantasía como fenómenos sobrenaturales, magia o criaturas extraordinarias. '
+
+                ],
+
+                [    
+                    'nombre' => 'Terror',
+                    'descripcion' => 'Es un subgénero dentro de la novela, que es a su vez un subgénero de la épica o narrativa.Su principal característica y rasgo distintivo es el cultivo del miedo y sus emociones asociadas como principal objetivo literario. '
+    
+                ],
+
+                [    
+                    'nombre' => 'Fantasía',
+                    'descripcion' => 'Cualquier relato en que participan fenómenos sobrenaturales y extraordinarios, como la magia o la intervención de criaturas inexistentes.'
         
-        for($i=1;$i <= 15; $i++){
-            DB::table('categorias')->insert(array(
-                'nombre' => "Categoría n° {$i}",
-                'descripcion' => "Descripción n° {$i}"
+                ]
+
             ));
-        }
+        
     }
+
+
 }

@@ -12,20 +12,18 @@ Página agregar libro
 <form method='POST' action="/enviar" >
     
     <br><br>
-    Seleccionar producto 
-    <br><br>
-    <select name="producto" id="producto" class="form-select" aria-label="Default select example">
-        <option selected>Seleccionar opción</option>
-        @foreach($asignarProducto as $asignarProducto)
-          <option value="{{$asignarProducto->id}}">{{$asignarProducto->nombre}}</option>
-         
-        @endforeach
-        
-      </select>
-
-     
-        
-
+ 
+      Seleccionar sucursal 
+      <br><br>
+      <select name="sucursal" id="sucursal" class="form-select" aria-label="Default select example">
+          <option selected>Seleccionar opción</option>
+          @foreach($asignarSucursal as $asignarSucursal)
+            <option value="{{$asignarSucursal->id}}">{{$asignarSucursal->nombre}}</option>
+           
+          @endforeach
+          
+        </select>
+        <br><br>
       
       <br><br>
       <label for="exampleFormControlInput1" class="form-label">Precio</label>

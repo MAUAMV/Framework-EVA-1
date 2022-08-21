@@ -13,6 +13,8 @@
 <br>
 <a href="{{route('gestionador_asignarProducto')}}"> Asignar producto</a>
 <br>
+<a href="{{route('gestionador_listado')}}"> Listado de productos</a>
+<br>
 <a href="{{route('gestionador_eliminar')}}"> Eliminar libro</a> 
 <br>
 <a href="{{route('main_index')}}"> Volver</a>

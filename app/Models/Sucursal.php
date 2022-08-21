@@ -12,7 +12,7 @@ class Sucursal extends Model
     protected $primaryKey = 'id';
 
     
-    public function productos(){
-        return $this->hasMany('App\Models\Producto');
+    public function existencias(){
+        return $this->hasMany('App\Models\Existencia');
     }
 }
