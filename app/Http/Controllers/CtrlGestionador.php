@@ -6,20 +6,42 @@ use Illuminate\Http\Request;
 
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Models\Sucursal;
+use App\Models\asignarProducto;
 
 class CtrlGestionador extends Controller
 {
     public function index(){
         $productos = Producto::get();
 
-        dd($productos);
-        //return view('gestionador.index');
+        //dd($productos);
+        return view('gestionador.index');
+    }
+
+    public function listado(){
+        $productos = Producto::get();
+
+        //dd($productos);
+        return view('gestionador.listado');
     }
 
     public function agregar(){
         $categoria = Categoria::get();
         return view('gestionador.agregar',[
             "categorias" => $categoria
+        ]);
+    }
+    public function agregarSucursal(){
+        $sucursal = Sucursal::get();
+        return view('gestionador.agregarSucursal',[
+            "sucursales" => $sucursal
+        ]);
+    }
+
+    public function asignarProducto(){
+        $asignarProducto = asignarProducto::get();
+        return view('gestionador.asignarProducto',[
+            "asignarProducto" => $asignarProducto
         ]);
     }
 
@@ -47,7 +69,7 @@ class CtrlGestionador extends Controller
 
         $productos = Producto::get();
 
-        dd($productos);
+        //dd($productos);
     }
 
 

@@ -22,6 +22,9 @@ Route::get('/integrantes', function() {return view('integrantes.index');});
 //rutas para /gestionador
 Route::get('/gestionador','App\Http\Controllers\CtrlGestionador@index')->name("gestionador_index");
 Route::get('/gestionador/agregar','App\Http\Controllers\CtrlGestionador@agregar')->name("gestionador_agregar");
+Route::get('/gestionador/agregarSucursal','App\Http\Controllers\CtrlGestionador@agregarSucursal')->name("gestionador_agregarSucursal");
+Route::get('/gestionador/asignarProducto','App\Http\Controllers\CtrlGestionador@asignarProducto')->name("gestionador_asignarProducto");
+Route::get('/gestionador/listado','App\Http\Controllers\CtrlGestionador@listado')->name("gestionador_listado");
 Route::get('/gestionador/eliminar','App\Http\Controllers\CtrlGestionador@eliminar')->name("gestionador_eliminar");
 
 //ruta para gestionar el envío de datos para ser guardados y almacenados
