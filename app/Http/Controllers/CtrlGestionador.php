@@ -36,6 +36,22 @@ class CtrlGestionador extends Controller
             "categorias" => $categoria
         ]);
     }
+
+    public function buscar(){
+        $productos = Producto::get();
+        return view('gestionador.buscar',[
+            "productos" => $productos
+        ]);
+    }
+
+    public function buscarProducto(Request $request){
+        $productos = Producto::where('nombre', 'LIKE', '%'.$request->busqueda.'%')->get();
+        return view('gestionador.buscar',[
+            "productos" => $productos
+        ]);
+    }
+
+
     public function agregarSucursal(){
         $sucursal = Sucursal::get();
         return view('gestionador.agregarSucursal',[
@@ -59,6 +75,7 @@ class CtrlGestionador extends Controller
             "sucursales" => $sucursales
         ]);
     }
+
 
     public function enviarExistencia(Request $request){
         $this->validate($request,[

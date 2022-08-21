@@ -9,6 +9,8 @@
 <br>
 <a href="{{route('gestionador_agregar')}}"> Agregar libro</a>
 <br>
+<a href="{{route('gestionador_buscar')}}"> Buscar libro</a>
+<br>
 <a href="{{route('gestionador_agregarSucursal')}}"> Agregar sucursal</a>
 <br>
 <a href="{{route('gestionador_agregarExistencia')}}"> Asignar Existencia</a>
