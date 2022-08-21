@@ -24,18 +24,8 @@ Página agregar libro
           
         </select>
         <br><br>
+    
       
-      <br><br>
-      <label for="exampleFormControlInput1" class="form-label">Precio</label>
-    <input type="number" name="precio" id="precio">
-      <br><br>
-
-      <label for="exampleFormControlInput1" class="form-label">Cantidad</label>
-    <input type="number" name="cantidad" id="cantidad">
-      <br><br>
-
-      </div>
-      <br><br>
 
 
 

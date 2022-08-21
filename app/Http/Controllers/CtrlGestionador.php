@@ -8,6 +8,7 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Sucursal;
 use App\Models\asignarProducto;
+use App\Models\asignarSucursal;
 
 class CtrlGestionador extends Controller
 {
@@ -47,6 +48,7 @@ class CtrlGestionador extends Controller
             "asignarProducto" => $asignarProducto
         ]);
     }
+
 
     public function asignarSucursal(){
         $asignarSucursal = asignarSucursal::get();
