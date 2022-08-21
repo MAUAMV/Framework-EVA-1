@@ -11,9 +11,7 @@
 <br>
 <a href="{{route('gestionador_agregarSucursal')}}"> Agregar sucursal</a>
 <br>
-<a href="{{route('gestionador_asignarProducto')}}"> Asignar producto</a>
-<br>
-<a href="{{route('gestionador_asignarSucursal')}}"> Asignar sucursal</a>
+<a href="{{route('gestionador_agregarExistencia')}}"> Asignar Existencia</a>
 <br>
 <a href="{{route('gestionador_listado')}}"> Listado de productos</a>
 <br>

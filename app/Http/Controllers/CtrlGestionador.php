@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Sucursal;
+use App\Models\Existencia;
 use App\Models\asignarProducto;
 use App\Models\asignarSucursal;
 
@@ -49,6 +50,34 @@ class CtrlGestionador extends Controller
         ]);
     }
 
+    public function agregarExistencia(){
+
+        $productos = Producto::get();
+        $sucursales = Sucursal::get();
+        return view('gestionador.agregarExistencia',[
+            "productos" => $productos,
+            "sucursales" => $sucursales
+        ]);
+    }
+
+    public function enviarExistencia(Request $request){
+        $this->validate($request,[
+            'producto' => 'required',
+            'sucursal' => 'required',
+            'precio' => 'required',
+            'cantidad' => 'required'
+        ]);
+        $existencia = new Existencia();
+        $existencia -> producto_id = $request -> producto;
+        $existencia -> sucursal_id = $request -> sucursal;
+        $existencia -> precio =  $request -> precio;
+        $existencia -> cantidad =  $request -> cantidad;
+        $existencia-> save();
+
+        $existencias = Existencia::get();
+        dd($existencias);
+    }
+
 
     public function asignarSucursal(){
         $asignarSucursal = asignarSucursal::get();
@@ -81,8 +110,9 @@ class CtrlGestionador extends Controller
         $producto-> save();
 
         $productos = Producto::get();
-
-        //dd($productos);
+        return view('gestionador.listado',[
+            'productos'=>$productos
+        ]);
     }
 
 
