@@ -7,42 +7,24 @@ Página agregar libro
 @stop
 
 @section('body')--}}
-
-<br>
 <h2>Listado</h2>
-<br>
-<div class="row">
-@foreach ($productos as $producto )
-
-    
-
-
-    <form  >
-      <label class="form-label">Nombre Producto: {{$producto->nombre}}</label>
-        
-      <br><br>
+<div class="d-flex justify-content-center">
   
-      <label class="form-label">Nombre Autor: {{$producto->autor}}</label>
-  
-      <br><br>
-
-      <label class="form-label">Categoria ID: {{$producto->categoria_id}}</label>
-  
-      <br><br>
-
-      <label class="form-label">Estado: {{$producto->estado}}</label>
-  
-      <br><br>
-
-      
-      <p class="card-text"></p>
-
-
-    </form>
-    @endforeach
-
-
-<a href="{{route('main_index')}}"> Volver</a>
-
+  @foreach ($productos as $producto )
+  <div class="card">
+    <div class="card-header">
+      {{$producto->nombre}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Escrito por {{$producto->autor}}</h5>
+      <p class="card-text">Categoria ID: {{$producto->categoria_id}}</p>
+      <p class="card-text">Estado: {{$producto->estado}}</p>
+    </div>
+  </div>
+  @endforeach
+</div>
+<div class="d-flex justify-content-center">
+  <a href="{{route('main_index')}}" class="btn btn-primary">Volver</a>
+</div>
 {{--@stop--}}
 @stop

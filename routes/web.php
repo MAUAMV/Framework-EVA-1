@@ -29,11 +29,16 @@ Route::get('/gestionador/agregarExistencia','App\Http\Controllers\CtrlGestionado
 Route::get('/gestionador/asignarSucursal','App\Http\Controllers\CtrlGestionador@asignarSucursal')->name("gestionador_asignarSucursal");
 Route::get('/gestionador/listado','App\Http\Controllers\CtrlGestionador@listado')->name("gestionador_listado");
 Route::get('/gestionador/eliminar','App\Http\Controllers\CtrlGestionador@eliminar')->name("gestionador_eliminar");
+Route::get('/update/{id}','App\Http\Controllers\CtrlGestionador@update');
+Route::get('/deleteProducto/{id}','App\Http\Controllers\CtrlGestionador@deleteProducto');
 
 //ruta para gestionar el envío de datos para ser guardados y almacenados
 Route::post('/enviar','App\Http\Controllers\CtrlGestionador@enviar')->name("gestionador_enviar");
 Route::post('/enviarExistencia','App\Http\Controllers\CtrlGestionador@enviarExistencia')->name("gestionador_enviarExistencia");
 Route::post('/buscarProducto','App\Http\Controllers\CtrlGestionador@buscarProducto')->name("gestionador_buscarProducto");
+Route::post('/updateProducto','App\Http\Controllers\CtrlGestionador@updateProducto')->name("gestionador_updateProducto");
+
+
 
 
 //ruta para remover y/o eliminar datos

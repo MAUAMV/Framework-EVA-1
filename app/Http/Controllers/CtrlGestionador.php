@@ -103,10 +103,43 @@ class CtrlGestionador extends Controller
         ]);
     }
 
+    public function deleteProducto($id){
+        $producto = Producto::find($id);
+        $producto->delete();
+        $productos = Producto::get();
+        return view('gestionador.buscar',[
+            "productos" => $productos
+        ]);
+    }
 
-    public function eliminar(){  
-        return view('gestionador.eliminar');
+    public function update($id){
+        $producto = Producto::find($id);
+        $existencias = Existencia::where('producto_id',$id)->get();
+        return view('gestionador.update',[
+            "producto" => $producto,
+            "existencias" => $existencias
+        ]);
+    }
 
+    public function updateProducto(Request $request){
+        $this->validate($request,[
+            'nombre' => 'required',
+            'autor' => 'required',
+            'precio' => 'required',
+        ]);
+        Producto::where('id',$request->idProducto)
+        ->update([
+            "nombre" => $request->nombre,
+            "autor" => $request->autor
+            ]);
+        Existencia::where('id',$request->idExistencia)
+        ->update([
+            "precio" => $request->precio
+            ]);
+        $productos = Producto::get();
+        return view('gestionador.buscar',[
+            "productos" => $productos
+        ]);
     }
 
     public function enviar(Request $request){
@@ -130,11 +163,5 @@ class CtrlGestionador extends Controller
         return view('gestionador.listado',[
             'productos'=>$productos
         ]);
-    }
-
-
-    public function remover(Request $request){
-        
-        return view('gestionador.remover')->with('request',$request);
     }
 }

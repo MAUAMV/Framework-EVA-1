@@ -23,8 +23,8 @@ Página agregar libro
             <br>
             <label class="form-label">Nombre Autor: {{$producto->autor}}</label>
             <br>
-            __________________________________________________________________________
-            <br>
+            <a href="/deleteProducto/{{ $producto->id }}" class = "btn btn-danger"> Borrar </a>
+            <a href="/update/{{ $producto->id }}" class = "btn btn-warning"> Editar </a>  
         </div>
     </div>
     @endforeach
