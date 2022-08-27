@@ -19,6 +19,9 @@ Página agregar libro
       <h5 class="card-title">Escrito por {{$producto->autor}}</h5>
       <p class="card-text">Categoria ID: {{$producto->categoria_id}}</p>
       <p class="card-text">Estado: {{$producto->estado}}</p>
+      <p class="card-text text muted">{{FormatTime::LongTimeFilterCreated($producto->created_at)}}</p>
+      <p class="card-text text muted">{{FormatTime::LongTimeFilterUpdated($producto->updated_at)}}</p>
+
     </div>
   </div>
   @endforeach
