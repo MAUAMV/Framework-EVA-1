@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',50);
             $table->string('autor',50);
+            $table->text('image');
             $table->foreignId('categoria_id')->references('id')->on('categorias');
             $table->boolean('estado');
             $table->timestamps();
+            
         });
     }
 

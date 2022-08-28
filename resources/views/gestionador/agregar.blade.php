@@ -30,6 +30,12 @@ Página agregar libro
                 @endforeach
               </select>
             </li>
+
+            <li class="list-group-item">
+              <label for="image" class="form-label">Imagen</label>
+              <input type="file" class="form-control" name="image" id="image" accept=".png, .jpg, .jpeg">
+            </li>
+
             <li class="list-group-item">
               <legend class="col-form-label col-sm-2 pt-0">Estado</legend>
               <div class="col-sm-10">
