@@ -39,7 +39,8 @@ Route::post('/buscarProducto','App\Http\Controllers\CtrlGestionador@buscarProduc
 Route::post('/updateProducto','App\Http\Controllers\CtrlGestionador@updateProducto')->name("gestionador_updateProducto");
 
 
-
+//ruta para guardar imagenes
+Route::get('/guardarImagen/{filename}','App\Http\Controllers\CtrlGestionador@getImagen');
 
 //ruta para remover y/o eliminar datos
 Route::post('/remover','App\Http\Controllers\CtrlGestionador@remover')->name("gestionador_remover");

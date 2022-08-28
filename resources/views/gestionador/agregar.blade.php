@@ -11,7 +11,7 @@ Página agregar libro
 
 <div class="d-flex justify-content-center">
     <div class="card" style="width: 50rem;">
-        <form method='POST' action="/enviar" >
+        <form method='POST' action="/enviar" enctype="multipart/form-data" >
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <label for="exampleInputEmail1">Nombre producto</label>

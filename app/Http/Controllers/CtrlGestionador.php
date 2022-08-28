@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Models\Producto;
 use App\Models\Categoria;
@@ -91,8 +92,18 @@ class CtrlGestionador extends Controller
         $existencia -> cantidad =  $request -> cantidad;
         $existencia-> save();
 
-        $existencias = Existencia::get();
+        $existencias = Existencia::join('productos', 'producto_id', '=', 'productos.id')->
+                                    join('sucursales', 'sucursal_id', '=', 'sucursales.id')
+                                    ->select('productos.*', 'sucursales.*','existencias.*')
+                                    ->get();
+        
         dd($existencias);
+        return view('gestionador.enviarExistencia',[
+            "existencias"=>$existencia
+           
+        ]);
+        
+        
     }
 
 
@@ -148,11 +159,21 @@ class CtrlGestionador extends Controller
             'nombre' => 'required',
             'autor' => 'required',
             'categoria' => 'required',
+            'image' => 'required',
             'estado' => 'required'
         ]);
+
+        $image = $request->file('image');
+
+        if($image){
+            $imagen_path = time()."-".$image->getClientOriginalName();
+            \Storage::disk('images')->put($imagen_path, \File::get($image));
+        }
+
         $producto = new Producto();
         $producto -> nombre = $request -> nombre;
         $producto -> autor = $request -> autor;
+        $producto -> image = $imagen_path;
         $producto -> estado =  $request -> estado;
         $producto -> categoria_id =  $request -> categoria;
         
@@ -163,5 +184,10 @@ class CtrlGestionador extends Controller
         return view('gestionador.listado',[
             'productos'=>$productos
         ]);
+    }
+
+    public function getImagen($filename){
+        $file = \Storage::disk('images')->get($filename);
+        return new Response($file, 200);
     }
 }
