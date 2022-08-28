@@ -124,17 +124,28 @@ class CtrlGestionador extends Controller
     }
 
     public function deleteProducto($id){
-        $producto = Producto::find($id);
-        $producto->delete();
+
+        //DB::table('users')->where('votes', '>', 100)->delete();
+
+        Existencia::where('id','=',$id)->delete();
+        Producto::where('id','=',$id)->delete();
+
         $productos = Producto::get();
         return view('gestionador.buscar',[
             "productos" => $productos
         ]);
     }
 
+    //página update/{id}
     public function update($id){
+        
+        //Buscar id del producto en tabla productos
         $producto = Producto::find($id);
+
+        //Buscar id del producto en tabla existencias
         $existencias = Existencia::where('producto_id',$id)->get();
+        
+        //Mostrar los datos del producto en página update
         return view('gestionador.update',[
             "producto" => $producto,
             "existencias" => $existencias
@@ -142,24 +153,31 @@ class CtrlGestionador extends Controller
     }
 
     public function updateProducto(Request $request){
-        $this->validate($request,[
-            'nombre' => 'required',
-            'autor' => 'required',
-            'precio' => 'required',
-        ]);
-        Producto::where('id',$request->idProducto)
+
+        //VALIDACIÓN
+        // $this->validate($request,[
+        //     'nombre' => 'required',
+        //     'autor' => 'required',
+        //     'precio' => 'required',
+        // ]);
+       
+        //AQUI SE DEBEN MODIFICAR DATOS
+
+        //Modificar producto con id en tabla productos
+     
+        $resultado_producto = Producto::where('id',$request->idProducto)
         ->update([
             "nombre" => $request->nombre,
             "autor" => $request->autor
             ]);
-        Existencia::where('id',$request->idExistencia)
+
+        $resultado_existencia = Existencia::where('id',$request->idProducto)
         ->update([
             "precio" => $request->precio
             ]);
-        $productos = Producto::get();
-        return view('gestionador.buscar',[
-            "productos" => $productos
-        ]);
+            
+        return view('gestionador.updateProducto');
+        
     }
 
     public function enviar(Request $request){
