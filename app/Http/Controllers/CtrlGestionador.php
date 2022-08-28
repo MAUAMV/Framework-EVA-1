@@ -31,6 +31,7 @@ class CtrlGestionador extends Controller
         
     }
 
+    //agregar 
     public function agregar(){
         $categoria = Categoria::get();
         return view('gestionador.agregar',[
@@ -38,6 +39,7 @@ class CtrlGestionador extends Controller
         ]);
     }
 
+    //buscar
     public function buscar(){
         $productos = Producto::get();
         return view('gestionador.buscar',[
@@ -45,6 +47,7 @@ class CtrlGestionador extends Controller
         ]);
     }
 
+    //para action
     public function buscarProducto(Request $request){
         $productos = Producto::where('nombre', 'LIKE', '%'.$request->busqueda.'%')
         ->OrWhere('id', '=',$request->busqueda)
@@ -123,6 +126,7 @@ class CtrlGestionador extends Controller
         ]);
     }
 
+    //método para formulario
     public function deleteProducto($id){
 
         //DB::table('users')->where('votes', '>', 100)->delete();
@@ -152,6 +156,7 @@ class CtrlGestionador extends Controller
         ]);
     }
 
+    //método para formulario
     public function updateProducto(Request $request){
 
         //VALIDACIÓN
@@ -180,6 +185,7 @@ class CtrlGestionador extends Controller
         
     }
 
+    
     public function enviar(Request $request){
         
         $this->validate($request,[
