@@ -3,15 +3,15 @@
 {{--@section('body')--}}
 @section('content')
 <br>
-Nombre ingresado: {{ $existencias->nombre}}
+Nombre ingresado: {{ $resultados[0]->productoName}}
 <br>
 
 
-Sucursal ingresada: {{ $existencias->sucursal}}
+Sucursal ingresada: {{ $resultados[0]->sucursalName}}
 <br>
-Cantidad ingresada: {{ $existencias->cantidad}}
+Cantidad ingresada: {{ $resultados[0]->cantidad}}
 <br>
-Precio ingresado: {{ $existencias->precio}}
+Precio ingresado: {{ $resultados[0]->precio}}
 <br>
 
 <a href="{{route('main_index')}}"> Volver</a>

@@ -46,7 +46,9 @@ class CtrlGestionador extends Controller
     }
 
     public function buscarProducto(Request $request){
-        $productos = Producto::where('nombre', 'LIKE', '%'.$request->busqueda.'%')->get();
+        $productos = Producto::where('nombre', 'LIKE', '%'.$request->busqueda.'%')
+        ->OrWhere('id', '=',$request->busqueda)
+        ->get();
         return view('gestionador.buscar',[
             "productos" => $productos
         ]);
@@ -92,16 +94,23 @@ class CtrlGestionador extends Controller
         $existencia -> cantidad =  $request -> cantidad;
         $existencia-> save();
 
-        $existencias = Existencia::join('productos', 'producto_id', '=', 'productos.id')->
+        $results= Existencia::join('productos', 'producto_id', '=', 'productos.id')->
                                     join('sucursales', 'sucursal_id', '=', 'sucursales.id')
-                                    ->select('productos.*', 'sucursales.*','existencias.*')
+                                    ->where('existencias.id','=',$existencia->id)
+                                    ->select(
+                                        'productos.nombre as productoName', 
+                                        'sucursales.nombre as sucursalName',
+                                        'existencias.precio',
+                                        'existencias.cantidad'
+                                        )
                                     ->get();
         
-        dd($existencias);
+        //dd($results);
         return view('gestionador.enviarExistencia',[
-            "existencias"=>$existencia
+            "resultados"=>$results
            
         ]);
+        
         
         
     }

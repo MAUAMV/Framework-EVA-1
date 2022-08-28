@@ -19,6 +19,8 @@ Página agregar libro
     <div class="card">
         <div class="card-body">
             <br>
+            <label class="form-label">ID Producto: {{$producto->id}}</label>
+            <br>
             <label class="form-label">Nombre Producto: {{$producto->nombre}}</label>
             <br>
             <label class="form-label">Nombre Autor: {{$producto->autor}}</label>
